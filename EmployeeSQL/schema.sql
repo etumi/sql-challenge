@@ -7,7 +7,7 @@
 
 CREATE TABLE "departments" (
     "dept_no" VARCHAR(255)   NOT NULL,
-    "dept_name" INTEGER   NOT NULL,
+    "dept_name" VARCHAR(255)   NOT NULL,
     CONSTRAINT "pk_departments" PRIMARY KEY (
         "dept_no"
      )
@@ -55,14 +55,11 @@ CREATE TABLE "salaries" (
      )
 );
 
-CREATE TABLE "title" (
+CREATE TABLE "titles" (
     "emp_no" INTEGER   NOT NULL,
     "title" VARCHAR(255)   NOT NULL,
     "from_date" VARCHAR(255)   NOT NULL,
-    "to_date" VARCHAR(255)   NOT NULL,
-    CONSTRAINT "pk_title" PRIMARY KEY (
-        "emp_no"
-     )
+    "to_date" VARCHAR(255)   NOT NULL
 );
 
 ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
@@ -80,6 +77,6 @@ REFERENCES "employees" ("emp_no");
 ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
 
-ALTER TABLE "title" ADD CONSTRAINT "fk_title_emp_no" FOREIGN KEY("emp_no")
+ALTER TABLE "titles" ADD CONSTRAINT "fk_titles_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
 
