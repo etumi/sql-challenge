@@ -29,3 +29,35 @@ ON e.emp_no = dept_emp.emp_no
 	ON dept_emp.dept_no = d.dept_no
 ORDER BY emp_no
 ;
+
+---5. List all employees whose first name is "Hercules" and last names begin with "B."
+SELECT * FROM "employees"
+WHERE first_name = 'Hercules' AND last_name LIKE 'B%'
+;
+
+
+---6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
+---use first code if department name not needed
+SELECT emp_no, last_name, first_name
+FROM "employees" AS e
+WHERE emp_no IN(
+	SELECT emp_no
+	FROM "dept_emp"
+	WHERE dept_emp.dept_no IN(
+		SELECT dept_no
+		FROM "departments"
+		WHERE dept_name = 'Sales'
+	)
+)
+ORDER BY emp_no
+;
+---use code below if department name needed
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+FROM "employees" AS e
+JOIN "dept_emp"
+ON e.emp_no = dept_emp.emp_no
+	JOIN "departments" AS d
+	ON dept_emp.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales'
+ORDER BY emp_no
+;
