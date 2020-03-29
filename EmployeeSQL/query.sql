@@ -17,3 +17,15 @@ ON d.dept_no = man.dept_no
 	ON man.emp_no = e.emp_no
 ;
 
+
+---4. List the department of each employee with the following information: employee number, 
+---last name, first name, and department name.
+
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+FROM "employees" AS e
+JOIN "dept_emp"
+ON e.emp_no = dept_emp.emp_no
+	JOIN "departments" AS d
+	ON dept_emp.dept_no = d.dept_no
+ORDER BY emp_no
+;
