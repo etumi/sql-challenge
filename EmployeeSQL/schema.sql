@@ -46,7 +46,7 @@ CREATE TABLE "employees" (
 );
 
 CREATE TABLE "salaries" (
-    "emp_no" INTERGER   NOT NULL,
+    "emp_no" INTEGER   NOT NULL,
     "salary" INTEGER   NOT NULL,
     "from_date" VARCHAR(255)   NOT NULL,
     "to_date" VARCHAR(255)   NOT NULL,
