@@ -96,3 +96,8 @@ FROM "employees"
 GROUP BY last_name
 ORDER BY last_name DESC
 ;
+
+---Epilogue
+SELECT * FROM "salaries"
+WHERE emp_no = 499942;
+;
